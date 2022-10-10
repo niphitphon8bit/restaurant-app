@@ -8,7 +8,12 @@ use Inertia\Inertia;
 
 class RestaurantController extends Controller
 {
-    private $api_key = "AIzaSyDHuyYfChBZWMDC7v-K4l3ubWVxlSV5GxY";
+    protected $api_key;
+    public function __construct()
+    {
+        $this->api_key = env("VITE_GOOGLE_MAP_API_KEY",null);
+    }
+    // private $api_key = env("GOOGLE_MAP_API_KEY", null);
     private $bangSueLatLng = '13.828253%2C100.5284507';
 
     public function index()
